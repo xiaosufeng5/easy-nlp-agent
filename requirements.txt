@@ -11,7 +11,7 @@ pydantic==1.10.17
 streamlit
 langchain-community==0.0.38
 langchain-text-splitters==0.0.2
-langchain-google-genai==0.0.13
 chromadb
 pypdf
 sentence-transformers
+langchain-google-genai==0.0.11
