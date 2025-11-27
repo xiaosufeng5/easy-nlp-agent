@@ -3,12 +3,12 @@ import streamlit as st
 import os
 import sys
 import tempfile
+# --- 修正后的 app.py 导入语句 ---
 
-# 1. 从 Community 包导入核心 Chain (这是最稳定的路径)
-# ⚠️ 必须导入这个，因为它包含了 RetrievalQA 的逻辑
-from langchain_community.chains import RetrievalQA
+# 1. 核心修复：从 langchain.chains 导入 RetrievalQA (这是其当前的官方路径)
+from langchain.chains import RetrievalQA 
 
-# 2. 从 Community 包导入其他 RAG 组件
+# 2. 从 Community 包导入其他 RAG 组件 (保持不变)
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
@@ -21,7 +21,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # 5. Google GenAI (保持不变)
 from langchain_google_genai import ChatGoogleGenerativeAI
-
 # 部署时，需将 PDF 文件放在 /data 目录下
 DATA_PATH = "data/NLP and Text Analysis: Introduction.pdf"
 PERSIST_DIR = "./chroma_db_cache"  # 数据库缓存目录
