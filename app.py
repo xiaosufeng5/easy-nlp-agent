@@ -1,32 +1,18 @@
-
 import streamlit as st
 import os
 import sys
 import tempfile
 
-
-from langchain_text_splitters import RecursiveCharacterTextSplitter 
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
-from langchain.chains import RetrievalQA
-from langchain.prompts import PromptTemplate
-
-# --- 修正后的 app.py 导入语句 (最终版本) ---
-
-# 1. 导入 LangChain Chains 依赖 (从 langchain-community 尝试导入)
-# ⚠️ 注意：RetrievalQA 在最新版本中被移到了 community 包
-from langchain_community.chains import RetrievalQA 
-
-# 2. 导入 LangChain Core 依赖
-from langchain_core.prompts import PromptTemplate # ⬅️ 将 PromptTemplate 移到 core 包
-
-# 3. 导入 LangChain Community 依赖 (保持不变)
+# 导入所有 LangChain 核心功能，使用子包路径:
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
+from langchain_community.chains import RetrievalQA             # ⬅️ 仅从 community 导入 RetrievalQA
+from langchain_core.prompts import PromptTemplate              # ⬅️ 仅从 core 导入 PromptTemplate
+from langchain_text_splitters import RecursiveCharacterTextSplitter 
 
-
+# 导入 Google GenAI (保持不变)
+from langchain_google_genai import ChatGoogleGenerativeAI
 # --- 2. 配置和初始化 (Streamlit Caching) ---
 
 # 部署时，需将 PDF 文件放在 /data 目录下
