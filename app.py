@@ -157,5 +157,5 @@ if prompt := st.chat_input("输入你的问题..."):
             response = f"❌ 内部错误：Agent 无法处理请求。错误详情: {e}"
 
     # c. 将 Agent 回答添加到历史记录并显示
-    st.session_message("assistant").write(response)
+    st.chat_message("assistant").write(response)
     st.session_state.messages.append({"role": "assistant", "content": response})
