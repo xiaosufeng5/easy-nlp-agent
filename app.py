@@ -1,23 +1,25 @@
+
 import streamlit as st
 import os
 import sys
 import tempfile
 
-# 1. 从主包 (langchain) 导入 Chains - 这是其当前的正确官方位置
-from langchain.chains import RetrievalQA
+# 1. 从 Community 包导入核心 Chain (这是最稳定的路径)
+# ⚠️ 必须导入这个，因为它包含了 RetrievalQA 的逻辑
+from langchain_community.chains import RetrievalQA 
 
 # 2. 从 Community 包导入其他 RAG 组件
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 
-# 3. 从 Core 包导入 Prompts
+# 3. 从 Core 包导入 Prompts (必须)
 from langchain_core.prompts import PromptTemplate
 
 # 4. 从 Text Splitters 包导入切分器
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-# 5. 导入 Google GenAI (保持不变)
+# 5. Google GenAI (保持不变)
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 # 部署时，需将 PDF 文件放在 /data 目录下
