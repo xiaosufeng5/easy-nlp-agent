@@ -3,26 +3,22 @@ import os
 import sys
 import tempfile
 
-# 1. 从 Community 包导入核心 Chain (最稳定的路径) # ⬅️ 必须从 community 导入 RetrievalQA
+# 1. 从主包 (langchain) 导入 Chains - 这是其当前的正确官方位置
 from langchain.chains import RetrievalQA
 
-# 2. 从 Community 包导入其他 RAG 组件 (保持不变)
+# 2. 从 Community 包导入其他 RAG 组件
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 
-# 3. 从 Core 包导入 Prompts (必须)
+# 3. 从 Core 包导入 Prompts
 from langchain_core.prompts import PromptTemplate
 
 # 4. 从 Text Splitters 包导入切分器
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-# 导入所有 LangChain 核心功能，使用子包路径:
 
-from langchain_text_splitters import RecursiveCharacterTextSplitter 
-
-# 导入 Google GenAI (保持不变)
+# 5. 导入 Google GenAI (保持不变)
 from langchain_google_genai import ChatGoogleGenerativeAI
-# --- 2. 配置和初始化 (Streamlit Caching) ---
 
 # 部署时，需将 PDF 文件放在 /data 目录下
 DATA_PATH = "data/NLP and Text Analysis: Introduction.pdf"
