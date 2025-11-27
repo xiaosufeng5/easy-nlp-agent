@@ -3,8 +3,8 @@ import os
 import sys
 import tempfile
 
-# 1. 从 Community 包导入核心 Chain (最稳定的路径)
-from langchain_community.chains import RetrievalQA # ⬅️ 必须从 community 导入 RetrievalQA
+# 1. 从 Community 包导入核心 Chain (最稳定的路径) # ⬅️ 必须从 community 导入 RetrievalQA
+from langchain.chains import RetrievalQA
 
 # 2. 从 Community 包导入其他 RAG 组件 (保持不变)
 from langchain_community.document_loaders import PyPDFLoader
