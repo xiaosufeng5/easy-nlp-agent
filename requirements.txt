@@ -1,21 +1,19 @@
 # --- 最终、最稳定的兼容版本锁定 (解决 ModuleNotFoundError) ---
 
-# 强制降级 Pydantic 到 v1.x 版本，以兼容 LangChain V0.1.x 的核心结构
-pydantic==1.10.17 
-
-# 锁定 LangChain 核心版本
+# 核心 LangChain 依赖 (必须包含 core 和主包的稳定版本)
 langchain==0.1.20
 langchain-core==0.1.52
 
-# 锁定 Google GenAI 集成到已知稳定版本 (避免不存在的 0.0.12 版本)
-langchain-google-genai==0.0.13 
-
-# 核心子包 (确保存在)
-langchain-community==0.0.38
+# 依赖于 Community 包的 Chains
+langchain-community==0.0.38 
 langchain-text-splitters==0.0.2
 
-# 基础 RAG 依赖 (保持不变)
+# 强制降级 Pydantic v1.x (解决底层兼容性问题)
+pydantic==1.10.17 
+
+# 其他 RAG 依赖
 streamlit
+langchain-google-genai==0.0.13
 chromadb
 pypdf
 sentence-transformers
