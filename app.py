@@ -6,8 +6,8 @@ import tempfile
 # 导入所有 LangChain 核心功能，使用子包路径:
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
-from langchain_community.chains import RetrievalQA             # ⬅️ 仅从 community 导入 RetrievalQA
+from langchain_community.vectorstores import Chroma        # ⬅️ 仅从 community 导入 RetrievalQA
+from langchain.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate              # ⬅️ 仅从 core 导入 PromptTemplate
 from langchain_text_splitters import RecursiveCharacterTextSplitter 
 
