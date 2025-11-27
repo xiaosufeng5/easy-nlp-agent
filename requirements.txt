@@ -1,19 +1,19 @@
+# --- 移除冲突版本，使用最新的稳定版本 ---
+
 streamlit
-
-# --- 强制锁定兼容版本 (避免 ModuleNotFoundError) ---
-
-# 锁定 LangChain 主包和核心依赖
+pydantic==1.10.17 
 langchain==0.1.20
 langchain-core==0.1.52
 
-# 锁定 Pydantic v1.x 版本，以兼容旧的 LangChain 核心代码
-pydantic==1.10.17 
+# 关键修正 1: 移除 langchain-google-genai 的错误版本号 (0.0.12 不存在)
+# 并使用最新的稳定版本 (例如 0.0.12 之后，最新的是 0.0.11 或 0.0.13, 0.0.14)
+# 🚨 我们可以使用 0.0.13 或直接使用最新版本来避免冲突
+langchain-google-genai==0.0.13 
 
-# 其他必需的子包和 RAG 依赖
+# 核心子包 (保持不变)
 langchain-community==0.0.38
 langchain-text-splitters==0.0.2
-langchain-google-genai==0.0.12
-streamlit
+
 chromadb
 pypdf
 sentence-transformers
