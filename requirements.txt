@@ -1,19 +1,18 @@
-# --- 最终、最稳定的兼容版本锁定 (简化版本) ---
+# --- 最终、最稳定的兼容版本锁定 (移除主包) ---
 
-# 核心 LangChain 依赖 (只需要锁定主包和核心包)
-langchain==0.1.20
+# 移除 langchain 主包，只保留核心和社区包
 langchain-core==0.1.52
-
-# 依赖于 Community 包的 Chains
-langchain-community==0.0.38
-langchain-text-splitters==0.0.2
 
 # 强制降级 Pydantic v1.x (解决底层兼容性问题)
 pydantic==1.10.17 
 
-# 其他 RAG 依赖 (注意：将有冲突的 Google GenAI 移除版本号，让 pip 自己找兼容版本)
+# 核心子包
+langchain-community==0.0.38
+langchain-text-splitters==0.0.2
+langchain-google-genai==0.0.13
+
+# RAG 依赖
 streamlit
-langchain-google-genai
 chromadb
 pypdf
 sentence-transformers
