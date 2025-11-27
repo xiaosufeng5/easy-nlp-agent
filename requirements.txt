@@ -1,18 +1,17 @@
-# --- 最终、最稳定的兼容版本锁定 (移除主包) ---
+# --- 最终、最稳定的兼容版本锁定 (解决 ModuleNotFoundError) ---
 
-# 移除 langchain 主包，只保留核心和社区包
+# 核心 LangChain 依赖 (必须包含 core 和主包的稳定版本)
+langchain==0.1.20
 langchain-core==0.1.52
 
 # 强制降级 Pydantic v1.x (解决底层兼容性问题)
 pydantic==1.10.17 
 
-# 核心子包
+# RAG 依赖
+streamlit
 langchain-community==0.0.38
 langchain-text-splitters==0.0.2
 langchain-google-genai==0.0.13
-
-# RAG 依赖
-streamlit
 chromadb
 pypdf
 sentence-transformers
