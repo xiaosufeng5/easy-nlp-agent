@@ -10,10 +10,15 @@ langchain-text-splitters
 langchain-google-genai # 移除版本号，让 pip 找兼容版本
 
 # 其他必需 RAG 依赖
-streamlit
-chromadb
-pypdf
 sentence-transformers
+# 核心 RAG 依赖 (必须分开锁定，并加入底层依赖)
+streamlit
+pypdf
+
+# 🎯 关键修正：锁定 ChromaDB 及其核心依赖
+chromadb==0.4.24  # 锁定一个已知稳定版本
+hnswlib==0.7.0    # 必须显式安装的核心依赖
+onnxruntime==1.17.1 # 另一个必须显式安装的核心依赖
 
 # 额外的兼容性修复 (保留)
 pydantic==1.10.17
