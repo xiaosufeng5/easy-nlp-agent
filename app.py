@@ -6,7 +6,7 @@ import tempfile
 
 # 1. 从 Community 包导入核心 Chain (这是最稳定的路径)
 # ⚠️ 必须导入这个，因为它包含了 RetrievalQA 的逻辑
-from langchain_community.chains import RetrievalQA 
+from langchain_community.chains import RetrievalQA
 
 # 2. 从 Community 包导入其他 RAG 组件
 from langchain_community.document_loaders import PyPDFLoader
